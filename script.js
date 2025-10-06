@@ -11,6 +11,8 @@ const pauseBtn = document.getElementById("pauseBtn");
 const resetBtn = document.getElementById("resetBtn");
 const lapBtn = document.getElementById("lapBtn");
 const lapsList = document.getElementById("lapsList");
+const themeBtn = document.getElementById("themeBtn");
+const body = document.body;
 
 function updateDisplay() {
   updatedTime = new Date().getTime();
@@ -59,5 +61,17 @@ lapBtn.addEventListener("click", () => {
     const lapItem = document.createElement("li");
     lapItem.textContent = `Lap ${laps.length}: ${display.textContent}`;
     lapsList.appendChild(lapItem);
+  }
+});
+
+// THEME TOGGLE
+themeBtn.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  body.classList.toggle("light");
+
+  if (body.classList.contains("light")) {
+    themeBtn.textContent = "☀️ Light";
+  } else {
+    themeBtn.textContent = "🌙 Dark";
   }
 });
